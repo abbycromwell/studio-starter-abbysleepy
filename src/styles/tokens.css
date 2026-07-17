@@ -8,13 +8,13 @@
 */
 :root {
   /* color */
-  --color-bg:             #FFFFFF;
+  --color-bg:             #F5D8D0; /* Warm Coral */
   --color-bg-subtle:      #F5F5F4;
   --color-text:           #1C1917;
   --color-text-secondary: #57534E;
   --color-border:         #D6D3D1;
-  --color-accent:         #2563EB;
-  --color-accent-hover:   #1D4ED8;
+  --color-accent:         #B7413E; /* Blood Coral */
+  --color-accent-hover:   #8E2F2D;
 
   /* typography */
   --font-display: system-ui, -apple-system, sans-serif;

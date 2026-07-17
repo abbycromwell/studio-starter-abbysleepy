@@ -9,7 +9,7 @@ design direction, made machine-readable. Be opinionated; vague answers produce g
 
 ## Color direction
 
-(Warm or cool? Quiet or loud? Name a base and an accent if you know them. Update `src/styles/tokens.css` to match.)
+Warm Coral sets a soft but more saturated coral ground, with Blood Coral as the deeper accent for interactive moments. The palette feels warm and intimate rather than bright.
 
 ## Typography
 
