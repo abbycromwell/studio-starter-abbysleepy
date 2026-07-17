@@ -9,7 +9,7 @@ design direction, made machine-readable. Be opinionated; vague answers produce g
 
 ## Color direction
 
-Warm Coral sets a soft but more saturated coral ground, with Blood Coral as the deeper accent for interactive moments. The palette feels warm and intimate rather than bright.
+Warm Coral sets a soft but more saturated coral ground, with Deep Oxblood text and Blood Coral interactive accents. The palette feels warm and intimate rather than bright.
 
 ## Typography
 
