@@ -1,12 +1,55 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import boogerSelfPortrait from '../assets/home/booger-self-portrait.webp';
+import tripleApple from '../assets/home/triple-apple-watercolor.webp';
+import figureDrawingAlfred from '../assets/work/drawing/figure-drawing-alfred.webp';
+import landscapeAbstract from '../assets/home/landscape-abstract.webp';
+import watercolorCockroach from '../assets/home/watercolor-cockroach.webp';
+
+const selectedWork = [
+  {
+    src: boogerSelfPortrait,
+    alt: 'Self-portrait of a dark-haired figure surrounded by insects',
+  },
+  {
+    src: tripleApple,
+    alt: 'Reclining figure among three red apples and broken objects',
+  },
+  {
+    src: figureDrawingAlfred,
+    alt: 'Standing figure holding a long length of fabric',
+  },
+  {
+    src: landscapeAbstract,
+    alt: 'Four-panel blue and yellow abstract landscape study',
+  },
+  {
+    src: watercolorCockroach,
+    alt: 'Purple-haired figure leaning away from oversized cockroaches',
+  },
+];
 ---
 
 <Base>
   <section class="hero">
     <h1>Abby Cromwell</h1>
-    <p class="hero-line">One sentence about who you are and what you make. Replace me in Week 1.</p>
     <a href="/work/">See my work</a>
+  </section>
+
+  <section aria-labelledby="selected-work">
+    <h2 id="selected-work">Selected work</h2>
+    <ul class="home-gallery">
+      {selectedWork.map((item, index) => (
+        <li>
+          <Image
+            src={item.src}
+            alt={item.alt}
+            loading={index === 0 ? 'eager' : 'lazy'}
+          />
+        </li>
+      ))}
+    </ul>
   </section>
 </Base>
 
@@ -20,10 +63,23 @@ import Base from '../layouts/Base.astro';
     margin: 0 0 var(--space-md);
   }
 
-  .hero-line {
-    font-size: var(--text-lg);
-    color: var(--color-text-secondary);
-    max-width: 36em;
+  h2 {
+    font-size: var(--text-xl);
     margin: 0 0 var(--space-lg);
+  }
+
+  .home-gallery {
+    list-style: none;
+    display: grid;
+    gap: var(--space-xl);
+    margin: 0;
+    padding: 0;
+  }
+
+  .home-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
   }
 </style>

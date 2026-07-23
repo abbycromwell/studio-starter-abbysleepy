@@ -1,12 +1,22 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import abbyPortrait from '../assets/about/abby-cromwell-portrait.webp';
 ---
 
 <Base title="About — Abby Cromwell">
   <h1>About</h1>
-  <p class="bio">A short bio: where you're from, what you study, what kind of work pulls you in. Write it like you talk.</p>
-  <h2>Contact</h2>
-  <p>Email, and anywhere else you want people to find you.</p>
+  <Image
+    src={abbyPortrait}
+    alt="Abby Cromwell wearing a dark suit and hat while holding a white disc over her face"
+    loading="eager"
+  />
+  <p class="bio">I am Abby Cromwell from California. I love art, all things Japanese, and my dog Yuki.</p>
+  <p>
+    <a href="https://docs.google.com/document/d/1kTXfgbIZkrj786EC5Tr3nq8RbgaTDvpwrt6qRgbXYmw/edit?usp=sharing">
+      View my resume
+    </a>
+  </p>
 </Base>
 
 <style>
@@ -16,12 +26,16 @@ import Base from '../layouts/Base.astro';
   }
 
   .bio {
-    max-width: 36em;
+    max-width: calc(var(--max-width-page) / 2);
     line-height: var(--leading-loose);
+    margin-top: var(--space-lg);
   }
 
-  h2 {
-    font-size: var(--text-xl);
-    margin: var(--space-xl) 0 var(--space-sm);
+  img {
+    display: block;
+    width: 100%;
+    max-width: calc(var(--max-width-page) / 2);
+    height: auto;
+    border-radius: var(--radius-sm);
   }
 </style>
