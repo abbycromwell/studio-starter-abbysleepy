@@ -14,42 +14,22 @@ const { category } = Astro.props;
 ---
 
 <Base title={`${category.title} — Abby Cromwell`}>
-  <article>
-    <header class="category-header">
-      <p><a href="/work/">All work</a></p>
-      <h1>{category.title}</h1>
-    </header>
-
-    <ul class="category-gallery">
-      {category.items.map((item, index) => (
-        <li>
-          <figure>
-            <Image
-              src={item.src}
-              alt={item.alt}
-              loading={index === 0 ? 'eager' : 'lazy'}
-            />
-          </figure>
-        </li>
-      ))}
-    </ul>
-  </article>
+  <ul class="category-gallery">
+    {category.items.map((item, index) => (
+      <li>
+        <figure>
+          <Image
+            src={item.src}
+            alt={item.alt}
+            loading={index === 0 ? 'eager' : 'lazy'}
+          />
+        </figure>
+      </li>
+    ))}
+  </ul>
 </Base>
 
 <style>
-  .category-header {
-    margin-bottom: var(--space-xl);
-  }
-
-  .category-header p {
-    margin: 0 0 var(--space-sm);
-  }
-
-  h1 {
-    font-size: var(--text-2xl);
-    margin: 0;
-  }
-
   .category-gallery {
     list-style: none;
     display: grid;
