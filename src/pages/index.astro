@@ -32,28 +32,20 @@ const selectedWork = [
 ---
 
 <Base>
-  <section aria-labelledby="selected-work">
-    <h2 id="selected-work">Selected work</h2>
-    <ul class="home-gallery">
-      {selectedWork.map((item, index) => (
-        <li>
-          <Image
-            src={item.src}
-            alt={item.alt}
-            loading={index === 0 ? 'eager' : 'lazy'}
-          />
-        </li>
-      ))}
-    </ul>
-  </section>
+  <ul class="home-gallery">
+    {selectedWork.map((item, index) => (
+      <li>
+        <Image
+          src={item.src}
+          alt={item.alt}
+          loading={index === 0 ? 'eager' : 'lazy'}
+        />
+      </li>
+    ))}
+  </ul>
 </Base>
 
 <style>
-  h2 {
-    font-size: var(--text-xl);
-    margin: 0 0 var(--space-lg);
-  }
-
   .home-gallery {
     list-style: none;
     display: grid;
