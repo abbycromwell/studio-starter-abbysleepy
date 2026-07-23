@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import { workCategories } from '../../data/work.js';
+
+export function getStaticPaths() {
+  return workCategories.map((category) => ({
+    params: { category: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+---
+
+<Base title={`${category.title} — Abby Cromwell`}>
+  <article>
+    <header class="category-header">
+      <p><a href="/work/">All work</a></p>
+      <h1>{category.title}</h1>
+    </header>
+
+    <ul class="category-gallery">
+      {category.items.map((item, index) => (
+        <li>
+          <figure>
+            <Image
+              src={item.src}
+              alt={item.alt}
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </article>
+</Base>
+
+<style>
+  .category-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .category-header p {
+    margin: 0 0 var(--space-sm);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    margin: 0;
+  }
+
+  .category-gallery {
+    list-style: none;
+    display: grid;
+    gap: var(--space-xl);
+    margin: 0;
+    padding: 0;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+  }
+</style>
